@@ -1,0 +1,15 @@
+export const assets = {
+    // logo: require('./mkg-logo.png'),
+    heIco: require('./IMG-EXCA.png'),
+    he2Ico: require('./IMG-EXCA-BIG.png'),
+    dozerIco: require('./IMG-DOZER.png'),
+    dtIco: require('./IMG-DT.png'),
+    catetpillar: require('./caterpillar.png'),
+    hidromek: require('./hidromek.png'),
+    hitachi: require('./hitachi.png'),
+    hongyan: require('./hongyan.png'),
+    jbc: require('./jbc.png'),
+    kobelco: require('./Kobelco.png'),
+    mitsubishi: require('./Mitsubishi.png'),
+    sumitomo: require('./sumitomo.png'),
+}
