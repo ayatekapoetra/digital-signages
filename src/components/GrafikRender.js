@@ -6,7 +6,7 @@ import 'moment/locale/id'
 export default function GrafikRender() {
     const [ tanggal, setTanggal ] = useState(moment().format('dddd, DD MMMM YYYY'))
     const [ waktu, setWaktu ] = useState(moment().format('HH:mm:ss'))
-    const [ countRefresh, setCountRefersh ] = useState(moment().add(1, 'h').format('HH:mm:ss'))
+    const [ countRefresh, setCountRefersh ] = useState(moment().add(30, 'minute').format('HH:mm:ss'))
 
     useEffect(() => {
         setDataWaktu()
@@ -17,6 +17,7 @@ export default function GrafikRender() {
             setWaktu(moment().format('HH:mm:ss'))
             setTanggal(moment().format('dddd, DD MMMM YYYY'))
             if(countRefresh === waktu){
+                setCountRefersh(moment().add(30, 'minute').format('HH:mm:ss'))
                 window.location = window.location
             }
         }, 1000)
