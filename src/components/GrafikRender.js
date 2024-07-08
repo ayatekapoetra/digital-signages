@@ -23,11 +23,13 @@ export default function GrafikRender() {
     }
 
     return (
-        <div className='max-h-fit w-1/4 bg-white'>
-            <Image src='/assets/images/safety-first.jpeg' width={500} height={500}/>
-            <div className='align-middle justify-center text-center'>
-                <p className='font-serif font-semibold text-xl'>{tanggal}</p>
-                <p className='font-mono font-semibold text-5xl'>{waktu}</p>
+        <div className='w-1/4 bg-slate-50'>
+            <div className='flex-1'>
+                <Image src='/assets/images/safety-first.jpeg' width={500} height={500}/>
+                <div className='align-middle justify-center text-center border-2 m-2'>
+                    <p className='font-serif font-semibold text-xl'>{tanggal}</p>
+                    <p className='font-mono font-semibold text-5xl'>{waktu}</p>
+                </div>
             </div>
         </div>
     )
