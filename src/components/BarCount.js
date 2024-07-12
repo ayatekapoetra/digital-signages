@@ -1,24 +1,18 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import { assets } from '../../public/assets/images'
 import Image from 'next/image'
 
 export default function BarCount( { apiuri } ) {
-    const [ hitApi, setHitApi ] = useState(0)
     const [ data, setData ] = useState({
         breakdown: 0,
-        waitteknisi: 0,
-        waitpart: 0,
-        ditangani: 0
+
     })
 
     useEffect(() => {
         GETDATAFETCH()
     }, [])
-
-    useEffect(() => {
-        INTERVALNEWDATA()
-    }, [hitApi])
 
     const GETDATAFETCH = async () => {
         try {
@@ -28,13 +22,6 @@ export default function BarCount( { apiuri } ) {
         } catch (error) {
             alert('Error get data....')
         }
-    }
-
-    const INTERVALNEWDATA = () => {
-        setTimeout( async() => {
-            GETDATAFETCH()
-            setHitApi(hitApi + 1)
-        }, (10 * 60) * 1000);
     }
 
     return (
