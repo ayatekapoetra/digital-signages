@@ -6,16 +6,11 @@ import GrafikRender from './GrafikRender'
 
 export default function ListRenders({ apiuri }) {
     console.log("CLIENT", apiuri);
-    const [ hitApi, setHitApi ] = useState(0)
     const [ data, setData ] = useState([])
     
     useEffect(() => {
         GETDATAFETCH()
     }, [])
-
-    useEffect(() => {
-        INTERVALNEWDATA()
-    }, [hitApi])
     
     const GETDATAFETCH = async () => {
         try {
@@ -27,16 +22,6 @@ export default function ListRenders({ apiuri }) {
             alert('Error get data....')
         }
     }
-
-    const INTERVALNEWDATA = () => {
-        setTimeout( async() => {
-            GETDATAFETCH()
-            setHitApi(hitApi + 1)
-            console.log("UPDATE API-----");
-        }, (10 * 60) * 1000);
-    }
-
-    console.log("hitApi", hitApi);
 
     return (
         <div className='flex flex-1 flex-row justify-between space-x-2'>
