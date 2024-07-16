@@ -5,14 +5,18 @@ import { assets } from '../../public/assets/images'
 import Image from 'next/image'
 
 export default function BarCount( { apiuri } ) {
+    const [ countFetch, setCountFetch ] = useState(0)
     const [ data, setData ] = useState({
         breakdown: 0,
-
+        waitteknisi: 0,
+        waitpart: 0,
+        ditangani: 0
     })
 
     useEffect(() => {
         GETDATAFETCH()
-    }, [])
+        intervalFetchData()
+    }, [countFetch])
 
     const GETDATAFETCH = async () => {
         try {
@@ -22,6 +26,13 @@ export default function BarCount( { apiuri } ) {
         } catch (error) {
             alert('Error get data....')
         }
+    }
+
+    const intervalFetchData = () => {
+        setTimeout(() => {
+            GETDATAFETCH()
+            setCountFetch(countFetch + 1)
+        }, 15 * (60 * 1000));
     }
 
     return (

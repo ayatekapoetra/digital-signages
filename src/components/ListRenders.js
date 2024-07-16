@@ -7,10 +7,12 @@ import GrafikRender from './GrafikRender'
 export default function ListRenders({ apiuri }) {
     console.log("CLIENT", apiuri);
     const [ data, setData ] = useState([])
+    const [ countFetch, setCountFetch ] = useState(0)
     
     useEffect(() => {
         GETDATAFETCH()
-    }, [])
+        intervalFetchData()
+    }, [countFetch])
     
     const GETDATAFETCH = async () => {
         try {
@@ -21,6 +23,13 @@ export default function ListRenders({ apiuri }) {
             console.log(error);
             alert('Error get data....')
         }
+    }
+
+    const intervalFetchData = () => {
+        setTimeout(() => {
+            GETDATAFETCH()
+            setCountFetch(countFetch + 1)
+        }, 15 * (60 * 1000));
     }
 
     return (
