@@ -1,11 +1,12 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RowRender from './RowRender'
 import GrafikRender from './GrafikRender'
+import RowRenderType from './RowRenderType';
 
-export default function ListRenders({ apiuri }) {
-    console.log("CLIENT", apiuri);
+export default function ListRendersHE({ apiuri }) {
+    console.log("CLIENT", apiuri + 'v-3/signage-services/type/DT');
     const [ data, setData ] = useState([])
     const [ countFetch, setCountFetch ] = useState(0)
     
@@ -16,12 +17,12 @@ export default function ListRenders({ apiuri }) {
     
     const GETDATAFETCH = async () => {
         try {
-            const resp = await fetch(apiuri + 'v-3/signage-services')
+            const resp = await fetch(apiuri + 'v-3/signage-services/type/HE')
             const result = await resp.json()
             setData(result?.data)
         } catch (error) {
             console.log(error);
-            // alert('Error get data....')
+            alert('Error get data....')
         }
     }
 
@@ -40,8 +41,7 @@ export default function ListRenders({ apiuri }) {
             {
                 data.length > 0 &&
                 <>
-                    <RowRender data={data}/>
-                    <GrafikRender/>
+                    <RowRenderType data={data}/>
                 </>
             }
         </div>

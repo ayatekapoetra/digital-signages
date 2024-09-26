@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-export default function BarCount( { apiuri } ) {
+export default function BarCountType( { apiuri, kategori } ) {
     const [ countFetch, setCountFetch ] = useState(0)
     const [ data, setData ] = useState({
         breakdown: 0,
@@ -19,12 +19,12 @@ export default function BarCount( { apiuri } ) {
 
     const GETDATAFETCH = async () => {
         try {
-            const resp = await fetch(apiuri + 'v-3/signage-services/barcount')
+            const resp = await fetch(apiuri + 'v-3/signage-services/barcount/type/' + kategori)
             const result = await resp.json()
-            // console.log(result);
+            console.log(result);
             setData(result)
         } catch (error) {
-            alert('Error get data....')
+            console.log(error);
         }
     }
 
@@ -37,7 +37,7 @@ export default function BarCount( { apiuri } ) {
 
     return (
         <div className="flex flex-row min-w-full space-x-4">
-            <div className="flex flex-1 flex-row justify-between p-2 bg-red-600 shadow">
+            <div className="flex flex-1 flex-row justify-between p-2 border-2 border-gray-400 rounded-lg bg-red-600 shadow">
                 <div className="flex flex-1">
                     <Image className='absolute xl:size-36 lg:size-16 md:size-12 sm:size-12 hidden md:block' src={require('../../public/assets/images/IMG-DOZER.png')} alt='Equipment' width="200" height="200"/>
                 </div>
@@ -48,7 +48,7 @@ export default function BarCount( { apiuri } ) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-1 flex-row justify-between p-2 bg-yellow-500 shadow">
+            <div className="flex flex-1 flex-row justify-between p-2 border-2 border-gray-400 rounded-lg bg-yellow-500 shadow">
                 <div className="flex flex-1">
                     <Image className='absolute xl:size-36 lg:size-16 md:size-12 sm:size-12 hidden md:block' src={require('../../public/assets/images/IMG-DOZER.png')} alt='Equipment' width="200" height="200"/>
                 </div>
@@ -59,7 +59,7 @@ export default function BarCount( { apiuri } ) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-1 flex-row justify-between p-2 bg-blue-400 shadow">
+            <div className="flex flex-1 flex-row justify-between p-2 border-2 border-gray-400 rounded-lg bg-blue-400 shadow">
                 <div className="flex flex-1">
                     <Image className='absolute xl:size-36 lg:size-16 md:size-12 sm:size-12 hidden md:block' src={require('../../public/assets/images/IMG-DOZER.png')} alt='Equipment' width="200" height="200"/>
                 </div>
@@ -70,7 +70,7 @@ export default function BarCount( { apiuri } ) {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-1 flex-row justify-between p-2 bg-green-600 shadow">
+            <div className="flex flex-1 flex-row justify-between p-2 border-2 border-gray-400 rounded-lg bg-green-600 shadow">
                 <div className="flex flex-1">
                     <Image className='absolute xl:size-36 lg:size-16 md:size-12 sm:size-12 hidden md:block' src={require('../../public/assets/images/IMG-DOZER.png')} alt='Equipment' width="200" height="200"/>
                 </div>
