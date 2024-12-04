@@ -55,6 +55,9 @@ export default function RowRenderType( { data } ) {
                         case "HONGYAN":
                             var imageUri = '/assets/images/hongyan.png'
                             break;
+                        case "Isuzu":
+                            var imageUri = '/assets/images/isuzu250x30.png'
+                            break;
                         default:
                             var imageUri = '/assets/images/hidromek.png'
                             break;
