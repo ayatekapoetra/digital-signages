@@ -32,7 +32,7 @@ export default function ListRenders({ apiuri }) {
         }, 15 * (60 * 1000));
     }
 
-    console.log(data);
+    // console.log(data);
     
 
     return (

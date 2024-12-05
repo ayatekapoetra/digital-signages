@@ -30,10 +30,14 @@ export default function RowRenderType( { data } ) {
         }, 5 * 1000);
     }
 
+    // console.log('XXXXX', state);
+    
+
     return (
         <div className='flex flex-1 flex-col bg-white'>
             {
                 state?.map((m, i) => {
+                    
                     switch (m?.manufaktur) {
                         case "Caterpillar":
                             var imageUri = '/assets/images/caterpillar.png'
@@ -66,6 +70,9 @@ export default function RowRenderType( { data } ) {
                             break;
                     }
 
+                    // console.log('XXXXX', m);
+    
+
                     switch (m?.status) {
                         case 0:
                             var panelColor = 'w-full flex justify-center items-center bg-[#e59f09] rounded-b-md'
@@ -89,7 +96,7 @@ export default function RowRenderType( { data } ) {
                             var avatar = '/assets/images/wait-teknisi.png'
                             break;
                     }
-                    console.log(panelColor);
+                    // console.log(panelColor);
                     
                     return (
                         <div key={m?.id} className='flex flex-1 py-2 space-x-2 align-middle border-b-2'>
